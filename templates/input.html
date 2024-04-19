@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RouteX - Input</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for the form */
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="form-container">
+        <h2 class="text-center mb-4">Enter Origin and Destination Coordinates</h2>
+        <form action="{% url 'calculate_route' %}" method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="origin_lat" class="form-label">Origin Latitude:</label>
+                <input type="text" class="form-control" id="origin_lat" name="origin_lat" required>
+            </div>
+            <div class="mb-3">
+                <label for="origin_lng" class="form-label">Origin Longitude:</label>
+                <input type="text" class="form-control" id="origin_lng" name="origin_lng" required>
+            </div>
+            <div class="mb-3">
+                <label for="dest_lat" class="form-label">Destination Latitude:</label>
+                <input type="text" class="form-control" id="dest_lat" name="dest_lat" required>
+            </div>
+            <div class="mb-3">
+                <label for="dest_lng" class="form-label">Destination Longitude:</label>
+                <input type="text" class="form-control" id="dest_lng" name="dest_lng" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Calculate Route</button>
+        </form>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
